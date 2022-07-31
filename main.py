@@ -3,15 +3,14 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class Item(BaseModel):
-    name: str
-    price: float
+class User(BaseModel):
+    user_id: str
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
 
-@app.post("/items/")
-async def create_item(item: Item):
-    return item
+@app.post("/user/")
+async def create_item(user: User):
+    return user
