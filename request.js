@@ -23,6 +23,7 @@ export default function () {
   check(random_post_res, {
     'status is 200': (r) => r.status === 200,
   });
+  // post random user_id from json
   const user = getUser();
   const json_random_post_res = http.post('http://localhost:8000/user',JSON.stringify({"user_id":user.user_id}));
   check(json_random_post_res, {
