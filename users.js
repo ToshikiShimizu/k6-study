@@ -4,6 +4,8 @@ const users = new SharedArray('users',function(){
     return JSON.parse(open('./users.json'));
 })
 
+const base_user = JSON.parse(open('./base_user.json'));
+
 export function getUser(){
-    return users[Math.floor(Math.random() * users.length)];
+    return {user_id: users[Math.floor(Math.random() * users.length)].user_id, password: base_user.password};
 }

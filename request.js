@@ -12,20 +12,20 @@ export default function () {
     'status is 200': (r) => r.status === 200,
   });
   // simple post
-  const post_res = http.post('http://localhost:8000/user',JSON.stringify({"user_id":"apple"}));
+  const post_res = http.post('http://localhost:8000/user',JSON.stringify({"user_id":"apple", "password":"password"}));
   check(post_res, {
     'status is 200': (r) => r.status === 200,
   });
   // random post
   const fruits = ["apple","pine","banana","orange"];
   const fruit  = fruits[Math.floor(Math.random() * fruits.length)];
-  const random_post_res = http.post('http://localhost:8000/user',JSON.stringify({"user_id":fruit}));
+  const random_post_res = http.post('http://localhost:8000/user',JSON.stringify({"user_id":fruit, "password":"password"}));
   check(random_post_res, {
     'status is 200': (r) => r.status === 200,
   });
   // post random user_id from json
   const user = getUser();
-  const json_random_post_res = http.post('http://localhost:8000/user',JSON.stringify({"user_id":user.user_id}));
+  const json_random_post_res = http.post('http://localhost:8000/user',JSON.stringify(user));
   check(json_random_post_res, {
     'status is 200': (r) => r.status === 200,
   });

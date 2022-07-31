@@ -5,6 +5,7 @@ app = FastAPI()
 
 class User(BaseModel):
     user_id: str
+    password: str
 
 @app.get("/")
 def read_root():
